@@ -25,3 +25,21 @@ end
 
 hello_c
 hello_c "dude"
+
+class Greeter
+    def initialize(name='world')
+        @name = name
+    end
+
+    def say_hello
+        puts "Hello, #{@name.capitalize}!"
+    end
+
+    def say_goodbye
+        puts "Well. Peace out then. :)"
+    end
+end
+
+g = Greeter.new('class')
+g.say_hello
+g.say_goodbye
