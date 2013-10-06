@@ -14,11 +14,19 @@ end
 # use this module to create some empty classes, just enough methods
 # so that the code doesn't bomb out
 class Stick
-    include Mock
+    def insert(combustion)
+	#Objects on the stick are inserted into the fire
+	end
+	
 end
 
 class Fire
-    include Mock
+    #include Mock
+	
+	def burn
+	#Changes the cooked state of an object
+	
+	end
 end
 
 class Graham
@@ -39,6 +47,8 @@ end
 
 class Smore
     NOT_QUITE_BURNED = 0.9
+	
+	attr_accessor :graham, :chocolate, :marshmallow, :fire, :desired_state
 
     def initialize(graham=nil, chocolate=nil, marshmallow=nil)
         @graham = graham
@@ -47,26 +57,6 @@ class Smore
 
         @fire = Fire.new
         @desired_state = NOT_QUITE_BURNED
-    end
-
-    def set_graham(graham)
-        @graham = graham
-    end
-
-    def set_chocolate(chocolate)
-        @chocolate = chocolate
-    end
-
-    def set_marshmallow(marshmallow)
-        @marshmallow = marshmallow
-    end
-
-    def set_fire(fire)
-        @fire = fire
-    end
-
-    def set_desired_state(state)
-        @desired_state = state
     end
 
     def cook
@@ -94,9 +84,9 @@ end
 # usage:
 if (__FILE__ == $0)
     s = Smore.new
-    s.set_graham(Graham.new)
-    s.set_chocolate(Chocolate.new)
-    s.set_marshmallow(Marshmallow.new)
-    s.set_fire(Fire.new)
+    s.graham = Graham.new
+    s.chocolate = Chocolate.new
+    s.marshmallow = Marshmallow.new
+    s.fire = Fire.new
     s.cook
 end
